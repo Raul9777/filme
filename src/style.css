@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f2f2f2;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+}
+
+.filme {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.filme h1 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #222;
+}
+
+.filme p {
+  margin: 14px 0;
+  font-size: 20px;
+  color: #444;
+}
+
+.filme strong {
+  color: #111;
+}
