@@ -2,6 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Filme from "./filme";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = ReactDOM.createRoot(
+  document.getElementById("root")
+);
 
-root.render(<Filme />);
+root.render(
+  <React.StrictMode>
+    <Filme />
+  </React.StrictMode>
+);
