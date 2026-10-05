@@ -1,43 +1,187 @@
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f2f2f2;
-}
-
-.App {
   min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #252545 0%, #0b0b14 45%, #050507 100%);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
   display: flex;
-  justify-content: center;
   align-items: center;
-  padding: 30px;
+  justify-content: center;
+  overflow: hidden;
 }
 
+/* Fundo com luzes */
+body::before {
+  content: "";
+  position: fixed;
+  width: 500px;
+  height: 500px;
+  background: #6c5ce7;
+  filter: blur(180px);
+  opacity: 0.18;
+  top: -200px;
+  left: -150px;
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  width: 450px;
+  height: 450px;
+  background: #00d4ff;
+  filter: blur(180px);
+  opacity: 0.12;
+  bottom: -200px;
+  right: -150px;
+  z-index: -1;
+}
+
+/* Card principal */
 .filme {
-  width: 100%;
-  max-width: 500px;
-  padding: 30px;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  position: relative;
+  width: 500px;
+  padding: 45px;
+  border-radius: 24px;
+
+  background: rgba(20, 20, 32, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.65),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(20px);
+
+  animation: aparecer 0.8s ease;
 }
 
+/* Linha brilhante no topo */
+.filme::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #7c5cff,
+    #00d4ff,
+    transparent
+  );
+
+  box-shadow: 0 0 20px #7c5cff;
+}
+
+/* Título */
 .filme h1 {
-  margin-top: 0;
-  margin-bottom: 25px;
   text-align: center;
-  color: #222;
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 35px;
+
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #9f8cff,
+    #00d4ff
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  text-shadow: 0 0 30px rgba(124, 92, 255, 0.3);
 }
 
+/* Informações */
 .filme p {
-  margin: 14px 0;
-  font-size: 20px;
-  color: #444;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 20px;
+  margin: 12px 0;
+
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  color: #aaa;
+
+  font-size: 16px;
+
+  transition: 0.3s ease;
 }
 
+/* Efeito ao passar o mouse */
+.filme p:hover {
+  transform: translateX(8px);
+
+  background: rgba(124, 92, 255, 0.12);
+
+  border-color: rgba(124, 92, 255, 0.4);
+
+  box-shadow: 0 0 25px rgba(124, 92, 255, 0.15);
+
+  color: white;
+}
+
+/* Valores */
 .filme strong {
-  color: #111;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* Destaque específico */
+.filme p:nth-child(3) strong {
+  color: #00d4ff;
+}
+
+.filme p:nth-child(4) strong {
+  color: #a78bfa;
+}
+
+/* Animação de entrada */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .filme {
+    width: calc(100% - 30px);
+    padding: 30px 20px;
+  }
+
+  .filme h1 {
+    font-size: 38px;
+  }
+
+  .filme p {
+    font-size: 14px;
+  }
+
+  .filme strong {
+    font-size: 14px;
+  }
 }

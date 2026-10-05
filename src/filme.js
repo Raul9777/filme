@@ -1,23 +1,29 @@
-function Filme({ nome, ano, genero, diretor }) {
+import React from "react";
+import "./style.css";
+
+function Filme() {
   return (
-    <div className="filme">
-      <h1>{nome}</h1>
+    <div className="filme card">
+      <div className="filme-poster" aria-hidden="true">
+        <div className="poster-gradient">MATRIX</div>
+      </div>
 
-      <p>
-        <strong>Nome:</strong> {nome}
-      </p>
+      <div className="filme-info">
+        <h1>Matrix</h1>
+        <p className="descricao">Um hacker descobre a natureza da realidade e lidera a resistência contra máquinas.</p>
 
-      <p>
-        <strong>Ano:</strong> {ano}
-      </p>
+        <ul className="detalhes">
+          <li><span>Nome</span><strong>Matrix</strong></li>
+          <li><span>Ano</span><strong>1999</strong></li>
+          <li><span>Gênero</span><strong>Ficção Científica</strong></li>
+          <li><span>Diretor</span><strong>Lana Wachowski</strong></li>
+        </ul>
 
-      <p>
-        <strong>Gênero:</strong> {genero}
-      </p>
-
-      <p>
-        <strong>Diretor:</strong> {diretor}
-      </p>
+        <div className="acoes">
+          <button className="btn primary">Assistir</button>
+          <button className="btn ghost">Mais informações</button>
+        </div>
+      </div>
     </div>
   );
 }
